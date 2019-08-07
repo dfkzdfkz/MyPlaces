@@ -70,6 +70,44 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
+        
+        // stars on main
+        let emptyStar = UIImage(named: "emptyStar")
+        let filledStar = UIImage(named: "filledStar")
+        switch place.rating {
+        case 0:
+            for image in cell.starsImages {
+            image.image = emptyStar
+            }
+        case 1:
+            cell.starsImages[0].image = filledStar
+            cell.starsImages[1].image = emptyStar
+            cell.starsImages[2].image = emptyStar
+            cell.starsImages[3].image = emptyStar
+            cell.starsImages[4].image = emptyStar
+        case 2:
+            cell.starsImages[0].image = filledStar
+            cell.starsImages[1].image = filledStar
+            cell.starsImages[2].image = emptyStar
+            cell.starsImages[3].image = emptyStar
+            cell.starsImages[4].image = emptyStar
+        case 3:
+            cell.starsImages[0].image = filledStar
+            cell.starsImages[1].image = filledStar
+            cell.starsImages[2].image = filledStar
+            cell.starsImages[3].image = emptyStar
+            cell.starsImages[4].image = emptyStar
+        case 4:
+            cell.starsImages[0].image = filledStar
+            cell.starsImages[1].image = filledStar
+            cell.starsImages[2].image = filledStar
+            cell.starsImages[3].image = filledStar
+            cell.starsImages[4].image = emptyStar
+        default:
+            for image in cell.starsImages {
+                image.image = filledStar
+            }
+        }
 
         return cell
     }
